@@ -1,0 +1,15 @@
+<%= form_for :login, :url => session_path do |form| %>
+  <%= form.error_messages %>
+  <p>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </p>
+  <p>
+    <%= form.label :password, "Passwort" %>
+    <%= form.password_field :password %>
+  </p>
+  <p>
+    <%= form.submit 'Login' %>
+  </p>
+<% end %>
+<%= link_to "Passwort vergessen", root_path %>

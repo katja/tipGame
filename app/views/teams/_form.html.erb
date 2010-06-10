@@ -1,0 +1,14 @@
+<%= form_for @team do |form| %>
+  <%= form.error_messages %>
+  <p>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </p>
+  <p>
+    <%= form.label :group %>
+    <%= form.select :group, Team.groups %>
+  </p>
+  <p>
+    <%= form.submit submit_message %>
+  </p>
+<% end %>

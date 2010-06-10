@@ -1,0 +1,30 @@
+<%= form_for @match do |form| %>
+  <%= form.error_messages %>
+  <p>
+    <%= form.label :round %>
+    <%= form.select :round, Match.round_options %>
+  </p>
+  <p>
+    <%= form.label :team_1_id, "Team 1" %>
+    <%= form.select :team_1_id, Team.team_names %>
+  </p>
+  <p>
+    <%= form.label :team_2_id, "Team 2" %>
+    <%= form.select :team_2_id, Team.team_names %>
+  </p>
+  <p>
+    <%= form.label :starts_at %>
+    <%= form.datetime_select :starts_at %>
+  </p>
+  <p>
+    <%= form.label :half_time_score, "Halbzeitstand" %>
+    <%= form.text_field :half_time_score %>
+  </p>
+  <p>
+    <%= form.label :score, "Endstand" %>
+    <%= form.text_field :score %>
+  </p>
+  <p>
+    <%= form.submit submit_message %>
+  </p>
+<% end %>

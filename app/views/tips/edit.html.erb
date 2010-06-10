@@ -1,0 +1,18 @@
+<h1>Deine Tipps</h1>
+<p>Auf geht's. Hau rein und gib deine Tipps ab :)</p>
+
+<% form_for @user, :url => { :action => 'update', :controller => 'tips' } do |f| %>
+  <%= f.error_messages %>
+<ul>
+  <% @user.tips.sort_by { |tip| tip.match.starts_at }.each do |tip| %>
+    <% if tip.match.starts_at <= Time.now %>
+      <%= render 'match_over_tip_entry', :tip => tip %>
+    <% else %>
+      <% f.fields_for :tips, tip do |ftip| %>
+      <%= render 'match_tip_entry', :tip => tip, :f => ftip %>
+      <% end %>
+    <% end %>
+  <% end %>
+  <p><%= f.submit "Tipps abgeben" %></p>
+<% end %>
+</ul>

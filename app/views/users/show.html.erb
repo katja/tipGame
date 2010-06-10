@@ -1,0 +1,11 @@
+<h1><%= @user.name %></h1>
+Folgende Informationen hast du hier hinterlegt:
+<ul class="long_list">
+  <li>Name: <em><%= @user.name %></em>
+  </li>
+  <li>Email-Adresse: <em><%= @user.mail %></em>
+  </li>
+  <li>Dein Passwort (das weißt nur du)
+  </li>
+</ul>
+<%= link_to "Daten ändern", edit_user_path(@user.id) %>

@@ -1,0 +1,23 @@
+<h1>Registriere dich zum erfolgreichen Tippen</h1>
+<%= form_for @user do |form| %>
+  <%= form.error_messages %>
+  <p>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </p>
+  <p>
+    <%= form.label :mail %>
+    <%= form.text_field :mail %>
+  </p>
+  <p>
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+  </p>
+  <p>
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

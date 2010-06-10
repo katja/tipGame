@@ -1,0 +1,9 @@
+<p><%= link_to "Neues Team erstellen", new_team_path %></p>
+<h1>Alle teilnehmenden Mannschaften</h1>
+<ul>
+<% for team in @teams do %>
+  <li>
+    <strong><%= team.name %></strong>
+    <%= team.group %>
+<% end %>
+</ul>

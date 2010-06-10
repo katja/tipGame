@@ -1,0 +1,2 @@
+class Preliminary < Match
+end

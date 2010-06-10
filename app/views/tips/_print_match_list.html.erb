@@ -1,0 +1,10 @@
+<% if matches.class == Hash %>
+  <% matches.each do |key, value| %>
+    <h<%= level %>><%= key %></h<%= level %>>
+    <%= render :partial => 'print_match_list', :locals => { :matches => value, :level => (level + 1) } %>
+  <% end %>
+<% else %>
+  <% matches.each do |match| %>
+    <%= render :partial => 'match_entry', :locals => { :match => match, :tip => @tips.where(:match_id => match.id).first } %>
+  <% end %>
+<% end %>
