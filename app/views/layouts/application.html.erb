@@ -8,7 +8,7 @@
   <meta name="MSSmartTagsPreventParsing" content="true" />
   <meta name="description" content="Who will be the winner of the Football World Championship 2010? What do you think?" />
   <meta name="keywords" content="WM 2010 Football World Championship" />
-  <title>tipWM</title>
+  <title>tipGame</title>
   
   <%= javascript_include_tag :defaults %>
   <%= stylesheet_link_tag("application") %>
@@ -18,6 +18,40 @@
   
   <div id="page-container">
     <div id="navigation">
+      
+      
+      <ul>
+        <li <%= "class='checked'" if controller.controller_name == 'matches' %>>
+          <%= link_to "Spiele", matches_path %>
+        </li>
+         <li <%= "class='checked'" if controller.controller_name == 'teams' %>>
+          <%= link_to "Mannschaften", teams_path %>
+        </li>
+        <li <%= "class='checked'" if controller.controller_name == 'tips' %>>
+          <% link = session[:user_id] ? tips_path : new_session_path %>
+          <%= link_to "Tipps", link %>
+        </li>
+        <% if logged_in? %>
+          <li <%= "class='checked'" if controller.controller_name == 'users' %>>
+            <%= link_to "Profil", user_path(User.find session[:user_id]) %>
+          </li>
+          <li <%= "class='checked'" if controller.controller_name == 'sessions' %>>
+            <%= link_to "Logout", session_path, :method => :delete %>
+          </li>
+        <% else %>
+          <li <%= "class='checked'" if controller.controller_name == 'sessions' %>>
+            <%= link_to "Login", new_session_path %>
+          </li>
+          <li <%= "class='checked'" if controller.controller_name == 'users' %>>
+            <%= link_to "Registrieren", new_user_path %>
+          </li>
+        <% end %>
+        
+      </ul>
+      
+      
+      
+      
     </div><!-- /navigation -->
     <div id="title">
     </div>

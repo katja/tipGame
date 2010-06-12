@@ -1,9 +1,10 @@
-<p><%= link_to "Neues Team erstellen", new_team_path %></p>
+<p><%= link_to "Neue Mannschaft erstellen", new_team_path %></p>
 <h1>Alle teilnehmenden Mannschaften</h1>
 <ul>
 <% for team in @teams do %>
   <li>
     <strong><%= team.name %></strong>
     <%= team.group %>
+    <%= link_to "ändern", edit_team_path(team)%>
 <% end %>
 </ul>

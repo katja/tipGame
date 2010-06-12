@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   after_save :flush_password
   
   attr_accessor :password, :password_confirmation
-  attr_accessible :password, :password_confirmation, :name, :mail
+  attr_accessible :password, :password_confirmation, :name, :mail, :tips_attributes
   
   validates_presence_of :name, :mail
   validates_presence_of :password, :password_confirmation, :if => :password_is_being_updated?

@@ -4,7 +4,8 @@
 <% form_for @user, :url => { :action => 'update', :controller => 'tips' } do |f| %>
   <%= f.error_messages %>
 <ul>
-  <% @user.tips.sort_by { |tip| tip.match.starts_at }.each do |tip| %>
+  <% @user.tips.each do |tip| %>
+  <% logger.info "match: #{tip}  #{tip.match}"%>
     <% if tip.match.starts_at <= Time.now %>
       <%= render 'match_over_tip_entry', :tip => tip %>
     <% else %>

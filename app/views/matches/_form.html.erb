@@ -1,15 +1,15 @@
-<%= form_for @match do |form| %>
+<%= form_for :match, @match, :url => matches_path, :method => "put" do |form| %>
   <%= form.error_messages %>
   <p>
     <%= form.label :round %>
     <%= form.select :round, Match.round_options %>
   </p>
   <p>
-    <%= form.label :team_1_id, "Team 1" %>
+    <%= form.label :team_1_id, "Mannschaft 1" %>
     <%= form.select :team_1_id, Team.team_names %>
   </p>
   <p>
-    <%= form.label :team_2_id, "Team 2" %>
+    <%= form.label :team_2_id, "Mannschaft 2" %>
     <%= form.select :team_2_id, Team.team_names %>
   </p>
   <p>

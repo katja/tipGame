@@ -2,5 +2,6 @@
   <em><%= tip.match.round %></em>
   <%= f.label :score, "#{tip.match.team_1.name} : #{tip.match.team_2.name}" %>
   <%= f.text_field :score %>
+  <%= f.hidden_field :match_id %>
   <small><%= tip.match.starts_at %></small>
 </li>

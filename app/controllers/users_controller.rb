@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+  before_filter :login_required, :except => [:new, :create]
+
   def index
     @users = User.all
   end
@@ -23,11 +26,11 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find params[:id]
+    @user = current_user
   end
 
   def update
-    @user = User.find params[:id]
+    @user = current_user
     
     if @user.update_attributes params[:user]
       flash[:notice] = "Deine Änderungen wurden gespeichert"

@@ -1,22 +1,18 @@
 class TipsController < ApplicationController
+  
+  before_filter :login_required
+  
   def show
     @matches_in_rounds = Match.all_matches_by_round
     @tips = Tip.where(:user_id => 1)
     @user = User.find(1)
   end
-
-  def new
-  end
-
-  def create
-  end
-
+  
   def edit
     @matches_in_rounds = Match.all_matches_by_round
-    #@tips = Tip.where(:user_id => 1)
     @user = User.find(1)
     Match.all.each do |match|
-      @user.tips.build :match_id => match.id unless @user.tips.include?(match)
+      @user.tips.build :match => match unless @user.tips.include?(match)
     end
   end
 
