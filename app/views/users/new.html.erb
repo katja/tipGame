@@ -6,18 +6,18 @@
     <%= form.text_field :name %>
   </p>
   <p>
-    <%= form.label :mail %>
+    <%= form.label :mail, 'Email' %>
     <%= form.text_field :mail %>
   </p>
   <p>
-    <%= form.label :password %>
+    <%= form.label :password, 'Passwort' %>
     <%= form.password_field :password %>
   </p>
   <p>
-    <%= form.label :password_confirmation %>
+    <%= form.label :password_confirmation, 'Passwort wiederholen' %>
     <%= form.password_field :password_confirmation %>
   </p>
   <p>
-    <%= form.submit %>
+    <%= form.submit 'Registrieren'  %>
   </p>
 <% end %>

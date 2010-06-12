@@ -1,5 +1,5 @@
 class Team < ActiveRecord::Base
-  TEAM_GROUPS = %w[A B C D E F G H]
+  TEAM_GROUPS = %w[A B C D E F G H unklar]
   
   has_many :matches, :dependent => :destroy
   

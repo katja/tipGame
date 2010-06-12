@@ -17,8 +17,14 @@
 <body>
   
   <div id="page-container">
-    <div id="navigation">
+    
+    <div id="title-and-navigation">
       
+      <div id="title-image">
+        <%= link_to image_tag("footballplayer.png", :alt => "Fußball", :border => 0, :width => '170px'), root_path %>
+      </div>
+      
+      <h1>Tipp dich fit</h1>
       
       <ul>
         <li <%= "class='checked'" if controller.controller_name == 'matches' %>>
@@ -45,16 +51,10 @@
           <li <%= "class='checked'" if controller.controller_name == 'users' %>>
             <%= link_to "Registrieren", new_user_path %>
           </li>
-        <% end %>
-        
-      </ul>
-      
-      
-      
-      
-    </div><!-- /navigation -->
-    <div id="title">
-    </div>
+        <% end %>        
+      </ul>      
+    </div><!-- /title-and-navigation -->
+    
     <% if flash[:notice] %>
     <div id="notice"><%= flash[:notice] %></div>
     <% end %>

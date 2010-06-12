@@ -8,6 +8,8 @@ dl, dt, dd, ol, ul, li, fieldset, form, label, legend {
 	font-weight: inherit;
 	font-style: inherit;
 	font-size: 100%;
+	text-decoration: none;
+	color: inherit;
 	outline: 0;
 	padding: 0;
 	margin: 0;
@@ -19,7 +21,7 @@ dl, dt, dd, ol, ul, li, fieldset, form, label, legend {
 body {
 	background: white;
 	line-height: 1;
-	color: black;
+	color: #3c8915;
 	}
 ol, ul {
 	list-style: none;
@@ -49,10 +51,118 @@ html, body, p, a {
                Verdana,
                Arial;
 }
+body {
+  background: #00bd1b url(../images/pitch.jpg) repeat;
+  font-size: 16px;
+  line-height: 22px;
+}
+a {
+  color: #264292;
+}
+a:hover {
+  color: #841124;
+}
 #page-container {
   width: 900px;
   margin: auto;
 }
-div {
-  background-color: #0000ff;
-}
+    #notice, #content, #footer {
+      background-color: rgba(255, 255, 255, 0.7);
+      margin: 20px 20px 20px 20px;
+      padding: 10px 10px 10px 10px;
+    }
+    #title-and-navigation {
+      margin-top: 30px;
+      float: left;
+      margin-bottom: 20px;
+    }
+        #title-and-navigation #title-image {
+          float: left;
+          width: 220px;
+        }
+        #title-and-navigation h1 {
+          float: left;
+          font-size: 100px;
+          line-height: 130px;
+          padding-bottom: 40px;
+          display: block;
+          width: 600px;
+          color: #841124;
+        }
+        #title-and-navigation ul {
+          margin: auto;
+        }
+        #title-and-navigation li a {
+          float: left;
+          padding: 10px;
+          margin: 10px;
+          background-color: rgba(255, 255, 255, 0.7);
+        }
+    #notice {
+      clear: both;
+      color: #841124;
+    }
+    #content {
+      float: left;
+      width: 840px;
+    }
+        #content h1 {
+          font-size: 24px;
+          color: #841124;
+          margin: 3px 0px 20px 0px;
+        }
+        #content h2 {
+          font-size: 18px;
+          color: #841124;
+          margin: 10px 0px 5px 0px;
+        }
+        #content ul {
+          margin: 15px 0px 15px 0px;
+          float: left;
+        }
+        #content .rectangles li {
+          float: left;
+          display: block;
+          width: 200px;
+        }
+        #content li strong {
+          font-size: 20px;
+          line-height: 30px;
+        }
+        #content label, #content input {
+          height: 18px;
+          margin: 5px 0px 5px 0px;
+        }
+        #content label {
+          display: block;
+          float: left;
+          line-height: 30px;
+        }
+            #content .new_user label {
+              width: 200px;
+            }
+            #content #login label {
+              width: 110px;
+            }
+        #content input {
+          clear: both;
+        }
+            #content #new_user input {
+              width: 250px;
+            }
+            #content #new_user input#user_submit {
+              width: auto;
+              margin-top: 15px;
+              margin-bottom: 20px;
+            }
+            #content #login input {
+              width: 250px;
+            }
+            #content #login input#login_submit {
+              width: auto;
+              margin-top: 15px;
+              margin-bottom: 20px;
+            }
+    #footer {
+      clear: both;
+    }
