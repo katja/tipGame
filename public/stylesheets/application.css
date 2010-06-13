@@ -168,6 +168,9 @@ a:hover {
           float: left;
           width: 70px;
         }
+        #content li .points {
+          color: #841124;
+        }
         #content li .score input{
           width: 50px;
         }

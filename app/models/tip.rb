@@ -9,4 +9,9 @@ class Tip < ActiveRecord::Base
   
   #attr_accessible :goals_team_1, :goals_team_2
   
+  def has_goals?
+    goals_team_1 && goals_team_2
+    
+  end
+  
 end

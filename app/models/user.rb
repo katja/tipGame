@@ -50,15 +50,25 @@ class User < ActiveRecord::Base
   def points
     points = 0
     Match.where('goals_team_1 IS NOT NULL AND starts_at < ?', Time.now).each do |match|
-       tip = Tip.where(:match_id => match.id).first
-        if tip
-        real_diff = match.goals_team_1 - match.goals_team_2
-        tip_diff = tip.goals_team_1 - tip.goals_team_2
-        points += 1 if real_diff == tip_diff
-        points += 1 if real_diff * tip_diff > 0
-        points += 2 if real_diff == tip_diff && match.goals_team_1 == tip.goals_team_1
+      tip = Tip.where(:match_id => match.id).first
+      if tip
+        points += User.points(tip, match)
       end
     end
+    points
+  end
+  
+  def self.points(tip, match)
+    calc_points(tip, match) if tip && tip.has_goals? && match.has_goals?
+  end
+  
+  def self.calc_points(tip, match)
+    real_diff = match.goals_team_1 - match.goals_team_2
+    tip_diff = tip.goals_team_1 - tip.goals_team_2
+    points = 0
+    points += 1 if real_diff == tip_diff
+    points += 1 if real_diff * tip_diff > 0
+    points += 2 if real_diff == tip_diff && match.goals_team_1 == tip.goals_team_1
     points
   end
 
