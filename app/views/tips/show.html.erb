@@ -1,4 +1,10 @@
 <h1>Deine Tipps</h1>
 <p>Alle Spiele und deine Tipps dazu</p>
+<p>
+  <%= link_to "Jetzt neue Ergebnisse tippen", edit_tips_path %>
+</p>
 
-<%= render :partial => 'print_match_list', :locals => { :matches => @matches_in_rounds, :level => 2 } %>
+<h2>Vorrunde</h2>
+<%= render :partial => 'print_match_list', :locals => { :matches => @preliminaries.group_by{ |p| p.team_1.group }, :level => 3 } %>
+
+<%= render :partial => 'print_match_list', :locals => { :matches => @finals.group_by{ |f| f.round }, :level => 2 } %>

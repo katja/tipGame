@@ -10,8 +10,13 @@ class Match < ActiveRecord::Base
   validates_uniqueness_of :round, :scope => [:team_2_id, :team_1_id]
   validates_uniqueness_of :team_1_id, :scope => :team_2_id           # forbid game against yourselves
 
+  scope :next_matches, lambda {
+    order('matches.starts_at ASC').
+    where("starts_at > ?", Time.now).
+    limit(3)
+  }
   def self.round_options
-    ['Vorrunde', 'Viertelfinale', 'Halbfinale', 'Spiel um Platz Drei','Finale']
+    ['Vorrunde', 'Achtelfinale', 'Viertelfinale', 'Halbfinale', 'Spiel um Platz Drei','Finale']
   end
   
   def self.matches_by_group(group)

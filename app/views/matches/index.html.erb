@@ -1,4 +1,7 @@
 <h1>Spiele</h1>
 <p>Alle Spiele, soweit vorhersagbar</p>
 
-<%= render :partial => 'print_match_list', :locals => { :matches => @matches_in_rounds, :level => 2 } %>
+<h2>Vorrunde</h2>
+<%= render :partial => 'print_match_list', :locals => { :matches => @preliminaries.group_by{ |p| p.team_1.group }, :level => 3 } %>
+
+<%= render :partial => 'print_match_list', :locals => { :matches => @finals.group_by{ |f| f.round }, :level => 2 } %>

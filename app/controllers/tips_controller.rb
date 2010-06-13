@@ -2,20 +2,24 @@ class TipsController < ApplicationController
   
   before_filter :login_required
   
+#TODO: check the order. there must be a mistake!
   def show
-    @matches_in_rounds = Match.all_matches_by_round
-    @tips = Tip.where(:user_id => 1)
+    @preliminaries = Preliminary.all
+    @finals = Final.all
+    @tips = Tip.where(:user_id => current_user.id)
     @user = current_user
   end
-  
+
+#TODO: check the order. there must be a mistake!
   def edit
-    @matches_in_rounds = Match.all_matches_by_round
     @user = current_user
     Match.all.each do |match|
-      @user.tips.build :match => match unless @user.tips.include?(match)
+      logger.info "''''''''''''''''''''''''inlcude match? #{@user.tips.select{ |t| t.match_id == match.id }.empty?}"
+      @user.tips.build :match => match if @user.tips.select{ |t| t.match_id == match.id }.empty?
     end
   end
 
+#TODO: check the time for the update as matches mustn't have already begun
   def update
     @user = current_user
     if @user.update_attributes(params[:user])

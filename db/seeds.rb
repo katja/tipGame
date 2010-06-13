@@ -1,10 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
-#   Mayor.create(:name => 'Daley', :city => cities.first)
+# rake db:seed or rake db:setup
 
 Team.create(:name => 'Südafrika', :group => 'A')
 Team.create(:name => 'Mexiko', :group => 'A')
@@ -46,29 +40,39 @@ Team.create(:name => 'Schweiz', :group => 'H')
 Team.create(:name => 'Honduras', :group => 'H')
 Team.create(:name => 'Chile', :group => 'H')
 
-Team.create(:name => 'Sieger Gruppe A', :group => 'A')
-Team.create(:name => 'Zweiter Gruppe A', :group => 'A')
+Team.create(:name => 'Sieger Gruppe A', :group => 'unklar')
+Team.create(:name => 'Zweiter Gruppe A', :group => 'unklar')
 
-Team.create(:name => 'Sieger Gruppe B', :group => 'B')
-Team.create(:name => 'Zweiter Gruppe B', :group => 'B')
+Team.create(:name => 'Sieger Gruppe B', :group => 'unklar')
+Team.create(:name => 'Zweiter Gruppe B', :group => 'unklar')
 
-Team.create(:name => 'Sieger Gruppe C', :group => 'C')
-Team.create(:name => 'Zweiter Gruppe C', :group => 'C')
+Team.create(:name => 'Sieger Gruppe C', :group => 'unklar')
+Team.create(:name => 'Zweiter Gruppe C', :group => 'unklar')
 
-Team.create(:name => 'Sieger Gruppe D', :group => 'D')
-Team.create(:name => 'Zweiter Gruppe D', :group => 'D')
+Team.create(:name => 'Sieger Gruppe D', :group => 'unklar')
+Team.create(:name => 'Zweiter Gruppe D', :group => 'unklar')
 
-Team.create(:name => 'Sieger Gruppe E', :group => 'E')
-Team.create(:name => 'Zweiter Gruppe E', :group => 'E')
+Team.create(:name => 'Sieger Gruppe E', :group => 'unklar')
+Team.create(:name => 'Zweiter Gruppe E', :group => 'unklar')
 
-Team.create(:name => 'Sieger Gruppe F', :group => 'F')
-Team.create(:name => 'Zweiter Gruppe F', :group => 'F')
+Team.create(:name => 'Sieger Gruppe F', :group => 'unklar')
+Team.create(:name => 'Zweiter Gruppe F', :group => 'unklar')
 
-Team.create(:name => 'Sieger Gruppe G', :group => 'G')
-Team.create(:name => 'Zweiter Gruppe G', :group => 'G')
+Team.create(:name => 'Sieger Gruppe G', :group => 'unklar')
+Team.create(:name => 'Zweiter Gruppe G', :group => 'unklar')
 
-Team.create(:name => 'Sieger Gruppe H', :group => 'H')
-Team.create(:name => 'Zweiter Gruppe H', :group => 'H')
+Team.create(:name => 'Sieger Gruppe H', :group => 'unklar')
+Team.create(:name => 'Zweiter Gruppe H', :group => 'unklar')
+
+Team.create(:name => 'Sieger Achtelfinale 1', :group => 'unklar')
+Team.create(:name => 'Sieger Achtelfinale 2', :group => 'unklar')
+Team.create(:name => 'Sieger Achtelfinale 3', :group => 'unklar')
+Team.create(:name => 'Sieger Achtelfinale 4', :group => 'unklar')
+Team.create(:name => 'Sieger Achtelfinale 5', :group => 'unklar')
+Team.create(:name => 'Sieger Achtelfinale 6', :group => 'unklar')
+Team.create(:name => 'Sieger Achtelfinale 7', :group => 'unklar')
+Team.create(:name => 'Sieger Achtelfinale 8', :group => 'unklar')
+
 
 Team.create(:name => 'Sieger Viertelfinale 1', :group => 'unklar')
 Team.create(:name => 'Sieger Viertelfinale 2', :group => 'unklar')
@@ -148,28 +152,28 @@ Match.create(:team_1_id => 32, :team_2_id => 29, :starts_at => DateTime.new(y=20
 
 
 # Achtelfinale
-Match.create(:team_1_id => 33, :team_2_id => 36, :starts_at => DateTime.new(y=2010, m=6, d=26, h=16, min=0, s=0, of=(2.0/24.0)), :round => 'Vorrunde', :type => 'Final')
-Match.create(:team_1_id => 37, :team_2_id => 40, :starts_at => DateTime.new(y=2010, m=6, d=26, h=20, min=30, s=0, of=(2.0/24.0)), :round => 'Vorrunde', :type => 'Final')
-Match.create(:team_1_id => 39, :team_2_id => 38, :starts_at => DateTime.new(y=2010, m=6, d=27, h=16, min=0, s=0, of=(2.0/24.0)), :round => 'Vorrunde', :type => 'Final')
-Match.create(:team_1_id => 35, :team_2_id => 34, :starts_at => DateTime.new(y=2010, m=6, d=27, h=20, min=30, s=0, of=(2.0/24.0)), :round => 'Vorrunde', :type => 'Final')
+Final.create(:team_1_id => 33, :team_2_id => 36, :starts_at => DateTime.new(y=2010, m=6, d=26, h=16, min=0, s=0, of=(2.0/24.0)), :round => 'Achtelfinale', :type => Final)
+Final.create(:team_1_id => 37, :team_2_id => 40, :starts_at => DateTime.new(y=2010, m=6, d=26, h=20, min=30, s=0, of=(2.0/24.0)), :round => 'Achtelfinale', :type => 'Final')
+Final.create(:team_1_id => 39, :team_2_id => 38, :starts_at => DateTime.new(y=2010, m=6, d=27, h=16, min=0, s=0, of=(2.0/24.0)), :round => 'Achtelfinale', :type => 'Final')
+Final.create(:team_1_id => 35, :team_2_id => 34, :starts_at => DateTime.new(y=2010, m=6, d=27, h=20, min=30, s=0, of=(2.0/24.0)), :round => 'Achtelfinale', :type => 'Final')
 
-Match.create(:team_1_id => 41, :team_2_id => 44, :starts_at => DateTime.new(y=2010, m=6, d=28, h=16, min=0, s=0, of=(2.0/24.0)), :round => 'Vorrunde', :type => 'Final')
-Match.create(:team_1_id => 45, :team_2_id => 48, :starts_at => DateTime.new(y=2010, m=6, d=28, h=20, min=30, s=0, of=(2.0/24.0)), :round => 'Vorrunde', :type => 'Final')
-Match.create(:team_1_id => 43, :team_2_id => 42, :starts_at => DateTime.new(y=2010, m=6, d=29, h=16, min=0, s=0, of=(2.0/24.0)), :round => 'Vorrunde', :type => 'Final')
-Match.create(:team_1_id => 47, :team_2_id => 46, :starts_at => DateTime.new(y=2010, m=6, d=29, h=20, min=30, s=0, of=(2.0/24.0)), :round => 'Vorrunde', :type => 'Final')
+Final.create(:team_1_id => 41, :team_2_id => 44, :starts_at => DateTime.new(y=2010, m=6, d=28, h=16, min=0, s=0, of=(2.0/24.0)), :round => 'Achtelfinale', :type => 'Final')
+Final.create(:team_1_id => 45, :team_2_id => 48, :starts_at => DateTime.new(y=2010, m=6, d=28, h=20, min=30, s=0, of=(2.0/24.0)), :round => 'Achtelfinale', :type => 'Final')
+Final.create(:team_1_id => 43, :team_2_id => 42, :starts_at => DateTime.new(y=2010, m=6, d=29, h=16, min=0, s=0, of=(2.0/24.0)), :round => 'Achtelfinale', :type => 'Final')
+Final.create(:team_1_id => 47, :team_2_id => 46, :starts_at => DateTime.new(y=2010, m=6, d=29, h=20, min=30, s=0, of=(2.0/24.0)), :round => 'Achtelfinale', :type => 'Final')
 
 # Viertelfinale
-Match.create(:team_1_id => 49, :team_2_id => 50, :starts_at => DateTime.new(y=2010, m=7, d=2, h=20, min=30, s=0, of=(2.0/24.0)), :round => 'Vorrunde', :type => 'Final')
-Match.create(:team_1_id => 53, :team_2_id => 54, :starts_at => DateTime.new(y=2010, m=7, d=2, h=16, min=0, s=0, of=(2.0/24.0)), :round => 'Vorrunde', :type => 'Final')
-Match.create(:team_1_id => 52, :team_2_id => 51, :starts_at => DateTime.new(y=2010, m=7, d=3, h=16, min=0, s=0, of=(2.0/24.0)), :round => 'Vorrunde', :type => 'Final')
-Match.create(:team_1_id => 55, :team_2_id => 56, :starts_at => DateTime.new(y=2010, m=7, d=3, h=20, min=30, s=0, of=(2.0/24.0)), :round => 'Vorrunde', :type => 'Final')
+Final.create(:team_1_id => 49, :team_2_id => 50, :starts_at => DateTime.new(y=2010, m=7, d=2, h=20, min=30, s=0, of=(2.0/24.0)), :round => 'Viertelfinale', :type => 'Final')
+Final.create(:team_1_id => 53, :team_2_id => 54, :starts_at => DateTime.new(y=2010, m=7, d=2, h=16, min=0, s=0, of=(2.0/24.0)), :round => 'Viertelfinale', :type => 'Final')
+Final.create(:team_1_id => 52, :team_2_id => 51, :starts_at => DateTime.new(y=2010, m=7, d=3, h=16, min=0, s=0, of=(2.0/24.0)), :round => 'Viertelfinale', :type => 'Final')
+Final.create(:team_1_id => 55, :team_2_id => 56, :starts_at => DateTime.new(y=2010, m=7, d=3, h=20, min=30, s=0, of=(2.0/24.0)), :round => 'Viertelfinale', :type => 'Final')
 
 # Halbfinale
-Match.create(:team_1_id => 57, :team_2_id => 58, :starts_at => DateTime.new(y=2010, m=7, d=6, h=20, min=30, s=0, of=(2.0/24.0)), :round => 'Vorrunde', :type => 'Final')
-Match.create(:team_1_id => 59, :team_2_id => 60, :starts_at => DateTime.new(y=2010, m=7, d=7, h=20, min=30, s=0, of=(2.0/24.0)), :round => 'Vorrunde', :type => 'Final')
+Final.create(:team_1_id => 57, :team_2_id => 58, :starts_at => DateTime.new(y=2010, m=7, d=6, h=20, min=30, s=0, of=(2.0/24.0)), :round => 'Halbfinale', :type => 'Final')
+Final.create(:team_1_id => 59, :team_2_id => 60, :starts_at => DateTime.new(y=2010, m=7, d=7, h=20, min=30, s=0, of=(2.0/24.0)), :round => 'Halbfinale', :type => 'Final')
 
 # Spiel um Platz Drei
-Match.create(:team_1_id => 61, :team_2_id => 62, :starts_at => DateTime.new(y=2010, m=7, d=10, h=20, min=30, s=0, of=(2.0/24.0)), :round => 'Vorrunde', :type => 'Final')
+Final.create(:team_1_id => 61, :team_2_id => 62, :starts_at => DateTime.new(y=2010, m=7, d=10, h=20, min=30, s=0, of=(2.0/24.0)), :round => 'Spiel um Platz Drei', :type => 'Final')
 
 # Finale
-Match.create(:team_1_id => 63, :team_2_id => 64, :starts_at => DateTime.new(y=2010, m=7, d=11, h=20, min=30, s=0, of=(2.0/24.0)), :round => 'Vorrunde', :type => 'Final')
+Final.create(:team_1_id => 63, :team_2_id => 64, :starts_at => DateTime.new(y=2010, m=7, d=11, h=20, min=30, s=0, of=(2.0/24.0)), :round => 'Finale', :type => 'Final')

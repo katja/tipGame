@@ -14,6 +14,7 @@ dl, dt, dd, ol, ul, li, fieldset, form, label, legend {
 	padding: 0;
 	margin: 0;
 	border: 0;
+	list-style: none;
 	}
 :focus {
 	outline: 0;
@@ -94,9 +95,12 @@ a:hover {
         }
         #title-and-navigation li a {
           float: left;
-          padding: 10px;
-          margin: 10px;
+          padding: 8px;
+          margin: 8px;
           background-color: rgba(255, 255, 255, 0.7);
+        }
+        #title-and-navigation li.checked a {
+          background-color: rgba(050, 150, 050, 0.7);
         }
     #notice {
       clear: both;
@@ -116,9 +120,24 @@ a:hover {
           color: #841124;
           margin: 10px 0px 5px 0px;
         }
+        #content h3 {
+          font-size: 16px;
+          color: #841124;
+          margin: 10px 0px 5px 0px;
+        }
         #content ul {
           margin: 15px 0px 15px 0px;
           float: left;
+        }
+            #content ul.long_list {
+              width: 100%;
+            }
+        #content li {
+          height: 50px;
+        }
+        #content .errorExplanation {
+          float: right;
+          width: 100%;
         }
         #content .rectangles li {
           float: left;
@@ -129,16 +148,40 @@ a:hover {
           font-size: 20px;
           line-height: 30px;
         }
-        #content label, #content input {
-          height: 18px;
-          margin: 5px 0px 5px 0px;
+        #content li .team {
+          display: block;
+          float: left;
+          width: 200px;
         }
+        #content li .round {
+          display: block;
+          float: left;
+          width: 160px;
+        }
+         #content li .teams, #content li .teams label {
+            display: block;
+            float: left;
+            width: 350px;
+          }
+        #content li .score {
+          display: block;
+          float: left;
+          width: 70px;
+        }
+        #content li .score input{
+          width: 50px;
+        }
+        #content li .date {
+          font-size: 12px;
+          clear: both;
+          width: 200px;
+        }
+
         #content label {
           display: block;
           float: left;
-          line-height: 30px;
         }
-            #content .new_user label {
+            #content .new_user label, #content .edit_user label {
               width: 200px;
             }
             #content #login label {
@@ -147,10 +190,10 @@ a:hover {
         #content input {
           clear: both;
         }
-            #content #new_user input {
+            #content #new_user input, #content #edit_user input {
               width: 250px;
             }
-            #content #new_user input#user_submit {
+            #content #new_user input#user_submit, #content #edit_user input#user_submit {
               width: auto;
               margin-top: 15px;
               margin-bottom: 20px;
@@ -164,5 +207,21 @@ a:hover {
               margin-bottom: 20px;
             }
     #footer {
-      clear: both;
+      float: left;
+      width: 840px;
+      font-size: 12px;
     }
+        #footer h1 {
+          display: block;
+          margin: 10px;
+          color: #841124;
+        }
+        #footer li {
+          float: left;
+          display: block;
+          margin: 5px;
+          padding: 5px;
+        }
+        #footer .date {
+          font-size: 8px;
+        }

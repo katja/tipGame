@@ -11,8 +11,12 @@ TipWM::Application.routes.draw do |map|
   
   resources :matches
   
-  resources :password_resets
+  resources :preliminaries
   
+  resources :finals
+  
+  resources :password_resets
+    
   match 'login' => 'sessions#new', :as => :login
 
   root :to => "matches#index"

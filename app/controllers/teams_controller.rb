@@ -3,7 +3,7 @@ class TeamsController < ApplicationController
   before_filter :admin_required, :except => [ :index, :show ]
   
   def index
-    @teams = Team.all
+    @teams = Team.all.select{|t| t.group != 'unklar'} #@teams = Team.where('group <> ?', 'unklar' )
   end
 
   def new

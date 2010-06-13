@@ -38,7 +38,10 @@
           <%= link_to "Tipps", link %>
         </li>
         <% if logged_in? %>
-          <li <%= "class='checked'" if controller.controller_name == 'users' %>>
+          <li <%= "class='checked'" if controller.controller_name == 'users' && params[:action] == 'index' %>>
+            <%= link_to "Tipperliste", users_path %>
+          </li>
+          <li <%= "class='checked'" if controller.controller_name == 'users' && params[:action] != 'index' %>>
             <%= link_to "Profil", user_path(User.find session[:user_id]) %>
           </li>
           <li <%= "class='checked'" if controller.controller_name == 'sessions' %>>
@@ -61,7 +64,18 @@
     <div id="content">
       <%= yield %>
     </div>
+
+
     <div id="footer">
+      <h1>Nächste Spiele tippen</h1>
+      <ul>
+        <% Match.next_matches.each do |match| %>
+        <li>
+          <%= match.team_1.name %> : <%= match.team_2.name %>
+          <small class="date"><%= match.starts_at %></small>
+        </li>
+        <% end %>
+      </ul>
     </div>
   </div><!-- /page-container -->
 </body>

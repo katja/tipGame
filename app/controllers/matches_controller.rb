@@ -3,7 +3,8 @@ class MatchesController < ApplicationController
   before_filter :admin_required, :except => [ :index, :show ]
   
   def index
-    @matches_in_rounds = Match.all_matches_by_round
+    @preliminaries = Preliminary.all
+    @finals = Final.all
   end
 
   def show
@@ -18,25 +19,15 @@ class MatchesController < ApplicationController
     @match = Match.new params[:match]
     
     if @match.save
-      flash[:notice] = "Match wurde erfolgreich erstellt"
+      flash[:notice] = "Spiel wurde erfolgreich erstellt"
       redirect_to new_match_path
     else
       render :new
     end
   end
-
+  
+#TODO: something wrong: edit doesn't work: it does a POST instead of PUT
   def edit
     @match = Match.find params[:id]
-  end
-
-  def update
-    @match = Match.find params[:id]
-    
-    if @match.update_attributes
-      flash[:notice] = "Match wurde erfolgreich geändert"
-      redirect_to matches_path
-    else
-      render :edit
-    end
   end
 end

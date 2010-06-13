@@ -4,6 +4,6 @@
   <li>
     <strong><%= team.name %></strong>
     <%= team.group %>
-    <%= link_to "ändern", edit_team_path(team)%>
+    <%= link_to "ändern", edit_team_path(team) if admin? %>
 <% end %>
 </ul>
