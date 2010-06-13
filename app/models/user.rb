@@ -49,7 +49,7 @@ class User < ActiveRecord::Base
   # richtiger Tipp => 4 Punkte
   def points
     points = 0
-    Match.where("starts_at > ?", Time.now).where('goals_team_1 <> ?', nil).each do |match|
+    Match.where('goals_team_1 IS NOT NULL AND starts_at > ?', Time.now).each do |match|
       tip = Tip.where(:match_id => match.id).first
         if tip
         real_diff = match.goals_team_1 - match.goals_team_2
