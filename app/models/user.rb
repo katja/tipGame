@@ -44,30 +44,8 @@ class User < ActiveRecord::Base
     find(:first, :conditions => [conditions_sql, *conditions_subs])
   end
   
-  # richtiger Gewinner => 1 Punkt
-  # richtige Tordifferenz => 2 Punkte
-  # richtiger Tipp => 4 Punkte
   def points
-    points = 0
-    Match.where('goals_team_1 IS NOT NULL AND starts_at < ?', Time.now).each do |match|
-      tip = Tip.where(:match_id => match.id).first
-      if tip
-        points += User.points(tip, match)
-      end
-    end
-    points
-  end
-  
-  def self.points(tip, match)
-    calc_points(tip, match) if tip && tip.has_goals? && match.has_goals?
-  end
-  
-  def self.calc_points(tip, match)
-    points = 0
-    points += 1 if tip.winner == match.winner
-    points += 1 if tip.goals_diff == match.goals_diff
-    points += 2 if tip.final_score == match.final_score
-    points
+    tips.inject(0) {|sum, tip| sum + tip.points}
   end
 
 private

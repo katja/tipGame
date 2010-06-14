@@ -2,6 +2,6 @@
   <em class="teams"><%= match.team_1.name %> : <%= match.team_2.name %></em>
   <em class="score"><%= tip ? "#{tip.score}" : "Tipp" %></em>
   <em class="score"><%= match.score != ':' ? "#{match.score}" : "Match" %></em>
-  <em class="points"><%= User.points(tip, match) %></em>
+  <em class="points"><%= tip.points if tip && tip.has_goals? %></em>
   <small class="date"><%= match.starts_at %></small>
 </li>

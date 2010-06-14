@@ -35,6 +35,10 @@ module MatchFormat
   
   def final_score
     [self.goals_team_1, self.goals_team_2]
-    
   end
+  
+  def has_goals?
+    goals_team_1 && goals_team_2
+  end
+  
 end

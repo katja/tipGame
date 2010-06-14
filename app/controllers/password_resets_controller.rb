@@ -9,9 +9,9 @@ class PasswordResetsController < ApplicationController
   def create
     @user = User.find_by_mail(params[:mail])
     if @user
-      #@user.deliver_password_reset_instructions!
-      #flash[:notice] = "Es wurde eine Email an dich versendet, mit der du dein Passwort ändern kannst."
-      flash[:notice] = "Sorry, da geht im Moment noch irgendwas kaputt. Falls du dein Passwort nicht mehr weißt, schicke bitte eine Mail an einen Administrator."
+      @user.deliver_password_reset_instructions!
+      flash[:notice] = "Es wurde eine Email an dich versendet, mit der du dein Passwort ändern kannst."
+      #flash[:notice] = "Sorry, da geht im Moment noch irgendwas kaputt. Falls du dein Passwort nicht mehr weißt, schicke bitte eine Mail an einen Administrator."
       redirect_to root_url
     else
       flash[:notice] = "Es wurde kein User mit der angegebenen Email-Adresse gefunden."

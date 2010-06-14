@@ -19,8 +19,8 @@ class Match < ActiveRecord::Base
     ['Vorrunde', 'Achtelfinale', 'Viertelfinale', 'Halbfinale', 'Spiel um Platz Drei','Finale']
   end
   
-  def has_goals?
-    goals_team_1 && goals_team_2
+  def finished?
+    has_goals?
   end
   
   def self.matches_by_group(group)

@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     @user = User.new params[:user]
     
     if @user.save
-      #UserMailer.registration_confirmation(@user).deliver
+      UserMailer.registration_confirmation(@user).deliver
       current_user = @user
       redirect_to user_path(@user)
     else
