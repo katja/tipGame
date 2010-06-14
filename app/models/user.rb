@@ -63,12 +63,10 @@ class User < ActiveRecord::Base
   end
   
   def self.calc_points(tip, match)
-    real_diff = match.goals_team_1 - match.goals_team_2
-    tip_diff = tip.goals_team_1 - tip.goals_team_2
     points = 0
-    points += 1 if real_diff == tip_diff
-    points += 1 if real_diff * tip_diff > 0
-    points += 2 if real_diff == tip_diff && match.goals_team_1 == tip.goals_team_1
+    points += 1 if tip.winner == match.winner
+    points += 1 if tip.goals_diff == match.goals_diff
+    points += 2 if tip.final_score == match.final_score
     points
   end
 

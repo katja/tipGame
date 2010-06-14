@@ -18,4 +18,23 @@ module MatchFormat
     self.goals_first_half_team_1 = scores.first
     self.goals_first_half_team_2 = scores.last
   end
+  
+  def winner
+    if self.goals_team_1 < self.goals_team_2
+      return 2
+    elsif self.goals_team_1 > self.goals_team_2
+      return 1
+    else
+      return 0
+    end
+  end
+  
+  def goals_diff
+    self.goals_team_1 - self.goals_team_2
+  end
+  
+  def final_score
+    [self.goals_team_1, self.goals_team_2]
+    
+  end
 end
