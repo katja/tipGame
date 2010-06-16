@@ -72,7 +72,7 @@
         <% Match.next_matches.each do |match| %>
         <li>
           <%= match.team_1.name %> : <%= match.team_2.name %>
-          <small class="date"><%= match.starts_at %></small>
+          <small class="date"><%= match.starts_at.to_formatted_s(:default) %></small>
         </li>
         <% end %>
       </ul>

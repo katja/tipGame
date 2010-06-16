@@ -42,7 +42,9 @@ blockquote, q {
 	quotes: "" "";
 	}
 /************************ begin styling here **************************/
-
+li.date-over {
+  color: rgba(60, 137, 21, 0.5);
+}
 html, body, p, a {
   font-family: "Adobe Garamond",
                Garamond,

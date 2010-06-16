@@ -1,0 +1,9 @@
+development:
+  user: <%= ENV['SFTP_USER'] %> s_renner
+  password: <%= ENV['SFTP_PASSWORD'] %>
+  host: <%= ENV['SFTP_HOST'] %> i08fs1.ira.uka.de
+  
+production:
+    user: <%= ENV['SFTP_USER'] %>
+    password: <%= ENV['SFTP_PASSWORD'] %>
+    host: <%= ENV['SFTP_HOST'] %>

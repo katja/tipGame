@@ -5,7 +5,7 @@
   <%= f.error_messages %>
 <ul>
   <% @user.tips.sort_by{|t| t.match.starts_at }.each do |tip| %>
-    <% if tip.match.starts_at <= Time.now %>
+    <% if tip.match.starts_at.past? %>
       <%= render 'match_over_tip_entry', :tip => tip %>
     <% else %>
       <%= f.fields_for :tips, tip do |ftip| %>
