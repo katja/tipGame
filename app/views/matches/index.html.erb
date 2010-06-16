@@ -2,6 +2,9 @@
 <p>Alle Spiele, soweit vorhersagbar</p>
 
 <h2>Vorrunde</h2>
-<%= render :partial => 'print_match_list', :locals => { :matches => @preliminaries.group_by{ |p| p.team_1.group }, :level => 3 } %>
-
-<%= render :partial => 'print_match_list', :locals => { :matches => @finals.group_by{ |f| f.round }, :level => 2 } %>
+<ul class="preliminary">
+<%= render :partial => 'print_match_list', :locals => { :matches => @preliminaries.group_by{ |p| p.team_1.group }.sort_by{ |group, matches| group }, :level => 3 } %>
+</ul>
+<ul class="final">
+<%= render :partial => 'print_match_list', :locals => { :matches => @finals.group_by{ |f| f.round }.sort_by{ |round, matches| -matches.length }, :level => 2 } %>
+</ul>

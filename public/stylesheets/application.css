@@ -127,8 +127,11 @@ a:hover {
           color: #841124;
           margin: 10px 0px 5px 0px;
         }
+        #content .errorExplanation {
+          float: right;
+          width: 100%;
+        }
         #content ul {
-          margin: 15px 0px 15px 0px;
           float: left;
         }
             #content ul.long_list {
@@ -137,50 +140,64 @@ a:hover {
         #content li {
           height: 50px;
         }
-        #content .errorExplanation {
-          float: right;
-          width: 100%;
-        }
-        #content .rectangles li {
-          float: left;
-          display: block;
-          width: 200px;
-        }
-        #content li strong {
-          font-size: 20px;
-          line-height: 30px;
-        }
-        #content li .team {
-          display: block;
-          float: left;
-          width: 200px;
-        }
-        #content li .round {
-          display: block;
-          float: left;
-          width: 160px;
-        }
-         #content li .teams, #content li .teams label {
-            display: block;
-            float: left;
-            width: 350px;
-          }
-        #content li .score {
-          display: block;
-          float: left;
-          width: 70px;
-        }
-        #content li .points {
-          color: #841124;
-        }
-        #content li .score input{
-          width: 50px;
-        }
-        #content li .date {
-          font-size: 12px;
-          clear: both;
-          width: 200px;
-        }
+            #content li.group {
+              float: left;
+              width: 360px;
+              margin: 10px 10px 10px 10px;
+              padding: 10px;
+              border: 10px solid rgba(255, 255, 255, 0.5);
+            }
+                #content .preliminary li.group {
+                  height: 340px;
+                }
+                #content .final li.group {
+                  height: auto;
+                }
+            #content li.group h3 {
+              margin: 5px 0px 5px 0px;
+            }
+            #content .rectangles li {
+              float: left;
+              display: block;
+              width: 200px;
+            }
+            #content li strong {
+              font-size: 20px;
+              line-height: 30px;
+            }
+            #content li .team {
+              display: block;
+              float: left;
+              width: 100px;
+            }
+            #content li .round {
+              display: block;
+              float: left;
+              width: 160px;
+            }
+             #content li .teams, #content li .teams label {
+                display: block;
+                float: left;
+                width: 200px;
+              }
+            #content li .score {
+              display: block;
+              float: left;
+              width: 50px;
+            }
+            #content li .points {
+              color: #841124;
+              width: 40px;
+              padding-left: 30px;
+            }
+            #content li .score input{
+              width: 50px;
+            }
+            #content li .date {
+              font-size: 12px;
+              clear: both;
+              width: 80px;
+            }
 
         #content label {
           display: block;

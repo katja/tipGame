@@ -1,7 +1,11 @@
-<% if matches.class == Hash or matches.class == ActiveSupport::OrderedHash %>
+<% if matches.first.class != Preliminary && matches.first.class != Final %>
   <% matches.each do |key, value| %>
+  <li class="group">
     <h<%= level %>><%= key %></h<%= level %>>
+    <ul>
     <%= render :partial => 'print_match_list', :locals => { :matches => value, :level => (level + 1) } %>
+    </ul>
+  </li>
   <% end %>
 <% else %>
   <% matches.sort_by{ |m| m.starts_at }.each do |match| %>
