@@ -4,3 +4,5 @@ log/*.log
 tmp/**/*
 config/initializers/setup-mail.rb
 config/initializers/setup_mail.rb
+app/mailers/user_mailer.rb
+app/mailers/user_mailer.rb
