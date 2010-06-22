@@ -5,7 +5,9 @@ class MatchesController < ApplicationController
   def index
     @preliminaries = Preliminary.all
     @finals = Final.all
-    Match.update_matches
+    if Match.update_matches
+      flash[:notice] = "Ergebnisse ganz aktuell neu geholt :)"
+    end
   end
 
   def show

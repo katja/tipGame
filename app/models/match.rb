@@ -1,6 +1,8 @@
 class Match < ActiveRecord::Base
   require 'match_format'
   include MatchFormat
+  
+  @@matches_updated = false
 
   belongs_to :team_1, :class_name => 'Team'
   belongs_to :team_2, :class_name => 'Team'
@@ -38,13 +40,16 @@ class Match < ActiveRecord::Base
     self.goals_first_half_team_1 = soap_match.matchResults.matchResult.first.pointsTeam1
     self.goals_first_half_team_2 = soap_match.matchResults.matchResult.first.pointsTeam2
     if self.save
-      flash[:notice] = "Ergebnisse ganz aktuell neu geholt :)"
+      @@matches_updated = true
+    else
+      @@matches_updated = false
     end
   end
 
   def self.update_matches
     service = SoapWrapper.new
     service.update_results
+    @@matches_updated
   end
   
   def self.matches_by_group(group)

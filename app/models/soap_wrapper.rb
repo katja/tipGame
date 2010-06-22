@@ -10,15 +10,19 @@ class SoapWrapper
   end
   
   def update_results
+    match_result = nil
     for match in Match.last_matches.matches_without_result do
       date_results = get_match_result_by_time(match.starts_at).matchdata
+      
       if date_results.class == Array
         date_results.each do |result|
-          match_result = result if result.nameTeam1 == match.team_1.name
+          match_result = result if result.nameTeam1.capitalize.eql? match.team_1.name.capitalize
         end
+        
       else
         match_result = date_results
       end
+      
       if match_result and match_result.nameTeam1 == match.team_1.name
         p "juhuu, hier :)"
         match.update_score(match_result)
