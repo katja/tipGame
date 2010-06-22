@@ -5,6 +5,7 @@ class MatchesController < ApplicationController
   def index
     @preliminaries = Preliminary.all
     @finals = Final.all
+    Match.update_matches
   end
 
   def show

@@ -17,7 +17,7 @@ class Match < ActiveRecord::Base
   }
   
   scope :last_matches, lambda {
-    order('matches.starts_at DES').
+    order('matches.starts_at DESC').
     where("starts_at < ?", Time.now)
   }
   
@@ -30,6 +30,21 @@ class Match < ActiveRecord::Base
   
   def finished?
     has_goals?
+  end
+  
+  def update_score(soap_match)
+    self.goals_team_1 = soap_match.matchResults.matchResult.last.pointsTeam1
+    self.goals_team_2 = soap_match.matchResults.matchResult.last.pointsTeam2
+    self.goals_first_half_team_1 = soap_match.matchResults.matchResult.first.pointsTeam1
+    self.goals_first_half_team_2 = soap_match.matchResults.matchResult.first.pointsTeam2
+    if self.save
+      flash[:notice] = "Ergebnisse ganz aktuell neu geholt :)"
+    end
+  end
+
+  def self.update_matches
+    service = SoapWrapper.new
+    service.update_results
   end
   
   def self.matches_by_group(group)

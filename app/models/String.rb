@@ -6,7 +6,6 @@ class String < Object
   
   def max_length(length)
     if self.length > length
-      p self[length - 2]
       if self.is_german_umlaut?(length)
         self.slice(0...length) + "."
         
