@@ -1,6 +1,6 @@
 <h1>Alle Mittipper</h1>
 <ul>
-<% for user in @users.sort_by{ |user| user.points } do %>
+<% for user in @users.sort_by{ |user| -user.points } do %>
 <li>
   <em><%= user.name %></em>
   <small><%= user.points %></small>
