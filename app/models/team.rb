@@ -1,3 +1,4 @@
+require 'String'
 class Team < ActiveRecord::Base
   TEAM_GROUPS = %w[A B C D E F G H unklar]
   
@@ -17,5 +18,9 @@ class Team < ActiveRecord::Base
   
   def self.groups
     TEAM_GROUPS
+  end
+  
+  def short
+    
   end
 end

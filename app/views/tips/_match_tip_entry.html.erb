@@ -1,7 +1,7 @@
 <li>
   <em class="round"><%= tip.match.round %></em>
-  <em class="teams"<%= f.label :score, "#{tip.match.team_1.name} : #{tip.match.team_2.name}" %></em>
-  <em class="score"><%= f.text_field :score %></em>
+  <em class="teams"<%= f.label :score, "#{tip.match.team_1.name.short} : #{tip.match.team_2.name.short}" %></em>
+  <em class="score-input"><%= f.text_field :score %></em>
   <%= f.hidden_field :match_id %>
   <small class="date"><%= tip.match.starts_at %></small>
 </li>

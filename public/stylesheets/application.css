@@ -178,20 +178,25 @@ a:hover {
              #content li .teams, #content li .teams label {
                 display: block;
                 float: left;
-                width: 200px;
+                width: 220px;
               }
             #content li .score {
               display: block;
               float: left;
-              width: 50px;
+              width: 45px;
             }
             #content li .points {
               color: #841124;
-              width: 40px;
+              width: 30px;
               padding-left: 30px;
             }
-            #content li .score input{
-              width: 50px;
+            #content li .score-input {
+              display: block;
+              float: left;
+              width: 55px;
+            }
+            #content li .score-input input{
+              width: 40px;
             }
             #content li .date {
               font-size: 12px;

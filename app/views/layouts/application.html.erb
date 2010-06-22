@@ -71,7 +71,7 @@
       <ul>
         <% Match.next_matches.each do |match| %>
         <li>
-          <%= match.team_1.name %> : <%= match.team_2.name %>
+          <%= match.team_1.name.short %> : <%= match.team_2.name.short %>
           <small class="date"><%= match.starts_at %></small>
         </li>
         <% end %>

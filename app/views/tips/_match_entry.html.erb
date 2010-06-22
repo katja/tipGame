@@ -1,5 +1,5 @@
 <li>
-  <em class="teams"><%= match.team_1.name %> : <%= match.team_2.name %></em>
+  <em class="teams"><%= match.team_1.name.short %> : <%= match.team_2.name.short %></em>
   <em class="score"><%= tip ? "#{tip.score}" : "Tipp" %></em>
   <em class="score"><%= match.score != ':' ? "#{match.score}" : "Match" %></em>
   <em class="points"><%= tip && match.finished? ? tip.points : "-" %></em>

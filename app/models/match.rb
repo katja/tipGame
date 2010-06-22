@@ -15,6 +15,15 @@ class Match < ActiveRecord::Base
     where("starts_at > ?", Time.now).
     limit(3)
   }
+  
+  scope :last_matches, lambda {
+    order('matches.starts_at DES').
+    where("starts_at < ?", Time.now)
+  }
+  
+  scope :matches_without_result, lambda {
+    where("matches.goals_team_1 IS NULL AND matches.goals_team_2 IS NULL")
+  }
   def self.round_options
     ['Vorrunde', 'Achtelfinale', 'Viertelfinale', 'Halbfinale', 'Spiel um Platz Drei','Finale']
   end
