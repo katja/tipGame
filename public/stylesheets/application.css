@@ -165,6 +165,12 @@ a:hover {
               font-size: 20px;
               line-height: 30px;
             }
+            #content li .id {
+              display: block;
+              float: left;
+              width: 40px;
+              color: #3812b0;
+            }
             #content li .team {
               display: block;
               float: left;

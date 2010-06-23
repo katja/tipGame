@@ -1,4 +1,7 @@
 <li>
+  <% if admin? %>
+    <em class="id"><%= match.id %></em>
+  <% end %>
   <em class="team"><%= match.team_1.name.short %></em>
   <em class="score"><%= "#{match.score}" %></em>
   <em class="team"><%= match.team_2.name.short %></em>
