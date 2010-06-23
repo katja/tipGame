@@ -58,16 +58,10 @@ class Match < ActiveRecord::Base
   end
   
   def update_score(soap_match)
-    i = 0
-    self.goals_first_half_team_1 = 0
-    self.goals_first_half_team_2 = 0
-    if soap_match.goals.goal[i]
-      while goal = soap_match.goals.goal[i]
-        update_goals_each_half(goal)
-      end
-    else
-      update_goals_each_half(soap_match.goals.goal)
-    end
+    self.goals_team_1 = soap_match.matchResults.matchResult.first.pointsTeam1
+    self.goals_team_2 = soap_match.matchResults.matchResult.first.pointsTeam2
+    self.goals_first_half_team_1 = soap_match.matchResults.matchResult.last.pointsTeam1
+    self.goals_first_half_team_2 = soap_match.matchResults.matchResult.last.pointsTeam2
 
     if self.save
       p "updated successfull: #{soap_match.nameTeam1} : #{soap_match.nameTeam2} => #{self.goals_team_1} : #{self.goals_team_2}"
@@ -76,13 +70,6 @@ class Match < ActiveRecord::Base
       p "update failed"
       @@matches_updated = false
     end
-  end
-
-  def update_goals_each_half(goal)
-    self.goals_team_1 = goal.goalScoreTeam1
-    self.goals_team_2 = goal.goalScoreTeam2
-    self.goals_first_half_team_1 = goal.goalScoreTeam1 if goal.goalMatchMinute.to_i <= 46
-    self.goals_first_half_team_2 = goal.goalScoreTeam2 if goal.goalMatchMinute.to_i <= 46
   end
 
   def self.update_matches
