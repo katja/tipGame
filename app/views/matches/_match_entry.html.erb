@@ -6,5 +6,5 @@
   <em class="score"><%= "#{match.score}" %></em>
   <em class="team"><%= match.team_2.name.short %></em>
   <small class="date"><%= match.starts_at %></small>
-  <%= image_tag("football.png", :alt => "Fußball", :border => 0, :width => '20px') %>
+  <%= image_tag("football.png", :alt => "Fußball", :border => 0, :width => '20px') if match.running? %>
 </li>
