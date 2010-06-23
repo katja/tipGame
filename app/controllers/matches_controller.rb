@@ -6,7 +6,7 @@ class MatchesController < ApplicationController
     @preliminaries = Preliminary.all
     @finals = Final.all
     if Match.update_matches
-      flash[:notice] = "Ergebnisse ganz aktuell neu geholt :)"
+      flash[:notice] = "Ergebnisse ganz aktuell neu geholt :)\n(Evt. neu laden erforderlich um diese anzuzeigen.)"
     end
   end
 
@@ -28,8 +28,7 @@ class MatchesController < ApplicationController
       render :new
     end
   end
-  
-#TODO: something wrong: edit doesn't work: it does a POST instead of PUT
+
   def edit
     @match = Match.find params[:id]
   end

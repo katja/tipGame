@@ -1,12 +1,10 @@
 require 'soap/wsdlDriver'
 
 class SoapWrapper
-  attr_accessor :endpoint, :service
   
-  # delete this method!
-  def initialize(endpoint = nil, service = nil)
-    @endpoint = endpoint
-    @service = service
+  def initialize(league = 'wm2010', saison = '2010')
+    @league_shortcut = league
+    @league_saison = saison
   end
   
   def update_results
@@ -24,7 +22,7 @@ class SoapWrapper
       end
       
       if match_result and match_result.nameTeam1 == match.team_1.name
-        p "juhuu, hier :)"
+        p "update #{match_result.nameTeam1} : #{match_result.nameTeam2}"
         match.update_score(match_result)
       end
     end
@@ -32,13 +30,13 @@ class SoapWrapper
   
   def get_match_result_by_time(start_time)
     soap = wsdl.create_rpc_driver
-    response = soap.getMatchdataByLeagueDateTime(:fromDateTime => start_time - 10.minutes, :toDateTime => start_time + 10.minutes, :leagueShortcut => 'wm2010')
+    response = soap.getMatchdataByLeagueDateTime(:fromDateTime => start_time - 10.minutes, :toDateTime => start_time + 10.minutes, :leagueShortcut => @league_shortcut)
     response.getMatchdataByLeagueDateTimeResult
   end
   
   def get_last_match_result
     soap = wsdl.create_rpc_driver
-    response = soap.getLastMatch(:leagueShortcut => 'wm2010')
+    response = soap.getLastMatch(:leagueShortcut => @league_shortcut)
     #soap.reset_stream
     response.getLastMatchResult
   end
