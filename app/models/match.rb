@@ -34,6 +34,19 @@ class Match < ActiveRecord::Base
     has_goals?
   end
   
+  def points(team)
+    p "hallo hier!"
+    if not finished?
+      0
+    elsif team_1_id == team.id and winner == 1 or team_2_id == team.id and winner == 2
+      3
+    elsif winner == 0
+      1
+    else
+      0
+    end
+  end
+  
   def self.delete_goals_last_matches(number)
     for match in Match.last_matches.limit(number) do
       match.goals_team_1 = nil

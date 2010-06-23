@@ -140,7 +140,7 @@ a:hover {
         #content li {
           height: 50px;
         }
-            #content li.group {
+            #content li.group, #content li.teams-hitlist {
               float: left;
               width: 360px;
               margin: 10px 10px 10px 10px;
@@ -153,13 +153,14 @@ a:hover {
                 #content .final li.group {
                   height: auto;
                 }
+            #content li.teams-hitlist {
+              height: auto;
+            }
             #content li.group h3 {
               margin: 5px 0px 5px 0px;
             }
-            #content .rectangles li {
-              float: left;
-              display: block;
-              width: 200px;
+
+            #content .teams li {
             }
             #content li strong {
               font-size: 20px;
@@ -195,6 +196,12 @@ a:hover {
               color: #841124;
               width: 30px;
               padding-left: 30px;
+            }
+            #content li .team-points {
+              color: #841124;
+              width: 30px;
+              padding-left: 30px;
+              clear: both;
             }
             #content li .score-input {
               display: block;

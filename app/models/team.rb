@@ -20,7 +20,9 @@ class Team < ActiveRecord::Base
     TEAM_GROUPS
   end
   
-  def short
-    
+  def points
+    sum = Match.where(:team_1_id => self.id).inject(0){ |sum, match| sum += match.points(self) }
+    sum += Match.where(:team_2_id => self.id).inject(0){ |sum, match| sum += match.points(self) }
   end
+
 end

@@ -1,9 +1,17 @@
 <h1>Alle teilnehmenden Mannschaften</h1>
-<ul class="rectangles">
-<% for team in @teams do %>
-  <li>
-    <strong><%= team.name %></strong>
-    <%= team.group %>
-    <%= link_to "ändern", edit_team_path(team) if admin? %>
+<ul>
+<% for group in @teams do %>
+  <li class="teams-hitlist">
+    <h2><%= group.first %></h2>
+    <ul>
+      <% for team in group.last.sort_by{ |t| -t.points }%>
+        <li class="team-hitlist">
+          <em class="team"><%= team.name %></em>
+          <em class="team-points"><%= team.points %></em>
+          <%= link_to "ändern", edit_team_path(team) if admin? %>
+        </li>
+      <% end %>
+    </ul>
+  </li>
 <% end %>
 </ul>
