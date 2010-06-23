@@ -21,8 +21,8 @@ class Team < ActiveRecord::Base
   end
   
   def points
-    sum = Match.where(:team_1_id => self.id).inject(0){ |sum, match| sum += match.points(self) }
-    sum += Match.where(:team_2_id => self.id).inject(0){ |sum, match| sum += match.points(self) }
+    p = Match.where(:team_1_id => self.id).inject(0){ |sum, match| sum += match.points(self) }
+    p += Match.where(:team_2_id => self.id).inject(0){ |sum, match| sum += match.points(self) }
   end
 
 end
