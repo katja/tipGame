@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100612204537) do
+ActiveRecord::Schema.define(:version => 20100623153337) do
 
   create_table "matches", :force => true do |t|
     t.integer  "team_1_id",                                          :null => false
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20100612204537) do
     t.datetime "updated_at"
     t.string   "round",                   :default => "Vorrunde",    :null => false
     t.string   "type",                    :default => "Preliminary", :null => false
+    t.boolean  "finished",                :default => false,         :null => false
   end
 
   create_table "teams", :force => true do |t|

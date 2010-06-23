@@ -65,6 +65,10 @@ a {
 a:hover {
   color: #841124;
 }
+li.running {
+  color: #3412AA;
+  background-color: rgba(255, 255, 255, 0.3);
+}
 #page-container {
   width: 900px;
   margin: auto;

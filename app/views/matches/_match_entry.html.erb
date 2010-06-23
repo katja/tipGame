@@ -1,4 +1,4 @@
-<li>
+<li class=<%= match.running? ? "'running'" : "'inactive'"%>>
   <% if admin? %>
     <em class="id"><%= match.id %></em>
   <% end %>
@@ -6,4 +6,5 @@
   <em class="score"><%= "#{match.score}" %></em>
   <em class="team"><%= match.team_2.name.short %></em>
   <small class="date"><%= match.starts_at %></small>
+  <%= image_tag("football.png", :alt => "Fußball", :border => 0, :width => '20px') %>
 </li>
