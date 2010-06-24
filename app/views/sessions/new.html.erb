@@ -1,7 +1,7 @@
 <%= form_for :login, :url => session_path, :html => {:id => 'login'} do |form| %>
   <%= form.error_messages %>
   <p>
-    <%= form.label :name %>
+    <%= form.label :name, "Name oder Email" %>
     <%= form.text_field :name %>
   </p>
   <p>

@@ -5,7 +5,7 @@ class Login
   attr_accessor :name, :password
   
   def validate
-    user = User.authenticate name, password
+    user = @name_or_mail.include?('@') ? User.authenticate_with_mail(@name_or_mail, password) : User.authenticate_with_name(@name_or_mail, password)
     errors.add :password, 'does not match name' if user.nil?
     self.password = nil
     user
@@ -13,7 +13,7 @@ class Login
   
   def initialize(attributes = nil)
     if attributes
-      @name = attributes[:name]
+      @name_or_mail = attributes[:name]
       @password = attributes[:password]
     end
   end
