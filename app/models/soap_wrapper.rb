@@ -9,7 +9,7 @@ class SoapWrapper
   
   def update_results
     match_result = nil
-    for match in Match.last_matches.matches_without_result do
+    for match in Match.last_matches.not_finished_matches do
       date_results = get_match_result_by_time(match.starts_at).matchdata
       
       if date_results.class == Array

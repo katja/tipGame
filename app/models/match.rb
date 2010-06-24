@@ -26,6 +26,10 @@ class Match < ActiveRecord::Base
   scope :matches_without_result, lambda {
     where("matches.goals_team_1 IS NULL AND matches.goals_team_2 IS NULL")
   }
+  
+  scope :not_finished_matches, lambda {
+    where(:finished => false)
+  }
   def self.round_options
     ['Vorrunde', 'Achtelfinale', 'Viertelfinale', 'Halbfinale', 'Spiel um Platz Drei','Finale']
   end
