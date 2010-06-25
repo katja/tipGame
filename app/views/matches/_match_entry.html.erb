@@ -2,9 +2,9 @@
   <% if admin? %>
     <em class="id"><%= match.id %></em>
   <% end %>
-  <em class="team"><%= match.team_1.name.short %></em>
+  <em class="team"><%= truncate(match.team_1.name, :length => 11, :omission => ".") %></em>
   <em class="score"><%= "#{match.score}" %></em>
-  <em class="team"><%= match.team_2.name.short %></em>
+  <em class="team"><%= truncate(match.team_2.name, :length => 11, :omission => ".") %></em>
   <small class="date"><%= match.starts_at %></small>
   <%= image_tag("football.png", :alt => "Fußball", :border => 0, :width => '20px') if match.running? %>
 </li>

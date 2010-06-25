@@ -71,7 +71,7 @@
       <ul>
         <% Match.next_matches.each do |match| %>
         <li>
-          <%= match.team_1.name.short %> : <%= match.team_2.name.short %>
+          <%= truncate(match.team_1.name, :length => 11, :omission => ".") %> : <%= truncate(match.team_2.name, :length => 11, :omission => ".") %>
           <small class="date"><%= match.starts_at %></small>
         </li>
         <% end %>
