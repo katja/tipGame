@@ -1,6 +1,6 @@
 <li>
   <em class="round"><%= tip.match.round %></em>
-  <em class="teams"<%= f.label :score, "#{trunacte(tip.match.team_1.name, :length => 11, :omission => ".")} : #{truncate(tip.match.team_2.name, :length => 11, :omission => ".")}" %></em>
+  <em class="teams"<%= f.label :score, "#{truncate(tip.match.team_1.name, :length => 11, :omission => ".")} : #{truncate(tip.match.team_2.name, :length => 11, :omission => ".")}" %></em>
   <em class="score-input"><%= f.text_field :score %></em>
   <%= f.hidden_field :match_id %>
   <small class="date"><%= tip.match.starts_at %></small>
