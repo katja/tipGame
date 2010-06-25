@@ -4,10 +4,11 @@
   <li class="teams-hitlist">
     <h2><%= group.first %></h2>
     <ul>
-      <% for team in group.last.sort_by{ |t| -t.points }%>
+      <% for team in group.last.sort_by{ |t| [t.points, t.goal_diff, t.goals] }.reverse %>
         <li class="team-hitlist">
           <em class="team"><%= team.name %></em>
           <em class="team-points"><%= team.points %></em>
+          <em class="goals"><%= team.goals_self_and_opponent.first %> : <%= team.goals_self_and_opponent.last %></em>
           <%= link_to "ändern", edit_team_path(team) if admin? %>
         </li>
       <% end %>
