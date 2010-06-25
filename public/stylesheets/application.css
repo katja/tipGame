@@ -203,7 +203,7 @@ li.running {
             }
             #content li .team-points {
               color: #841124;
-              width: 30px;
+              padding-right: 30px;
               padding-left: 30px;
               clear: both;
             }
@@ -229,7 +229,7 @@ li.running {
               width: 200px;
             }
             #content #login label {
-              width: 110px;
+              width: 160px;
             }
         #content input {
           clear: both;
