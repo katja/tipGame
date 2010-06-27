@@ -93,6 +93,7 @@ class Match < ActiveRecord::Base
   end
 
   def self.update_matches
+    @@matches_updated = false
     service = SoapWrapper.new
     service.update_results
     @@matches_updated
