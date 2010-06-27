@@ -3,11 +3,11 @@ class MatchesController < ApplicationController
   before_filter :admin_required, :except => [ :index, :show ]
   
   def index
+    if Match.update_matches
+      flash[:notice] = "Ergebnisse ganz aktuell neu geholt :)"
+    end
     @preliminaries = Preliminary.all
     @finals = Final.all
-    if Match.update_matches
-      flash[:notice] = "Ergebnisse ganz aktuell neu geholt :)\n(Evt. neu laden erforderlich um diese anzuzeigen.)"
-    end
   end
 
   def show
