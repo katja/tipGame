@@ -19,6 +19,11 @@ class Team < ActiveRecord::Base
     TEAM_GROUPS
   end
   
+  def points_of_round(round = 'Vorrunde')
+    pts = Match.where(:round => round).where(:team_1_id => self.id).inject(0){ |sum, match| sum += match.points(self) }
+    Match.where(:round => round).where(:team_2_id => self.id).inject(pts){ |sum, match| sum += match.points(self) }
+  end
+  
   def points
     pts = Match.where(:team_1_id => self.id).inject(0){ |sum, match| sum += match.points(self) }
     Match.where(:team_2_id => self.id).inject(pts){ |sum, match| sum += match.points(self) }
